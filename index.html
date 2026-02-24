@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="js/javascript.js"></script>
 </head>
 <body>
-    <p id = "demo"></p>
+     <img id="demo" src="" alt="">
+     <button onclick=sacarcarta()></button>
 
     <script>
     /*********** Definición de la clase cubo ************/
@@ -19,18 +21,21 @@
       }
      
         //Creación de los objetos
-        var carta1 = new Carta(1, "C:\Users\ChristianT\Desktop");       //Volumen de este cubo 6
+        var carta1 = new Carta(1, "img/2oros.png");       //Volumen de este cubo 6
         var carta2 = new Carta(2, 9);       //Volumen de este cubo 216
         var carta3 = new Carta(3, 5);       //Volumen de este cubo 60
         var carta4 = new Carta(4, 17);     //Volumen de este cubo 408
         var carta5 = new Carta(5, 8);       //Volumen de este cubo 336
-        var arrayCartas=[crata1,carta2,carta3];
+        var arrayCartas=[carta1,carta2,carta3];
 
         var elegido=arrayCartas(1);
         console.log(elegido);
+
+        document.getElementById("demo").src=elegido.url;
        
 
 
     </script>
+   
 </body>
 </html>
