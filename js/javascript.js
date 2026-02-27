@@ -54,13 +54,14 @@
     var carta39 = new carta(11,"img/caballobastos.png");
     var carta40 = new carta(12,"img/reybastos.png");
 
-    var arrayCartas= new[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,carta10,
-                          carta11,carta12,carta13,carta14,carta15,carta16,carta17,carta18,carta19,carta20,
-                          carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
-                          carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
+    var arrayCartas=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,carta10,
+                    carta11,carta12,carta13,carta14,carta15,carta16,carta17,carta18,carta19,carta20,
+                    carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
+                    carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
     function sacarcarta(){
       console.log(elegido);
-      var elegido=arraycartas[parseInt(Math.random()*40+1)];
+      var random=parseInt(Math.random()*40)
+      var elegido=arrayCartas[random];
       document.getElementById("demo").src=elegido.url;
     }
    
