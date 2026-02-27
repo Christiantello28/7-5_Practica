@@ -58,10 +58,18 @@
                     carta11,carta12,carta13,carta14,carta15,carta16,carta17,carta18,carta19,carta20,
                     carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
                     carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
+
     function sacarcarta(){
-      console.log(elegido);
-      var random=parseInt(Math.random()*40)
+
+      var nuevaImagen = document.createElement("img");
+
+      var random=Math.floor(Math.random()*arrayCartas.length)
       var elegido=arrayCartas[random];
-      document.getElementById("demo").src=elegido.url;
+      nuevaImagen.src=elegido.url;
+
+      arrayCartas.splice(random, 1); 
+      console.log(arrayCartas.length);
+      document.getElementById("tapete").appendChild(nuevaImagen);
+
     }
    
