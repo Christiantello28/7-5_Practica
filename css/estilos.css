@@ -86,7 +86,24 @@ button:hover{
     align-items: center;
 }
 
-#mensaje-derrota img {
+#mensaje-derrota video {
+    max-width: 80vw;        /* Evita que sea más grande que la pantalla */
+    border-radius: 20px;    /* Opcional: para bordes suaves como tu dibujo */
+    box-shadow: 0 0 50px rgba(0,0,0,0.8); /* Sombra para dar profundidad */
+}
+
+#mensaje-victoria {
+    position: fixed;        /* Se fija a la ventana del navegador */
+    top: 50%;               /* Lo mueve al centro vertical */
+    left: 50%;              /* Lo mueve al centro horizontal */
+    transform: translate(-50%, -50%); /* Ajuste perfecto para centrar su propio eje */
+    z-index: 1000;          /* Asegura que esté por encima de cartas y botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mensaje-victoria video {
     max-width: 80vw;        /* Evita que sea más grande que la pantalla */
     border-radius: 20px;    /* Opcional: para bordes suaves como tu dibujo */
     box-shadow: 0 0 50px rgba(0,0,0,0.8); /* Sombra para dar profundidad */
@@ -95,4 +112,7 @@ button:hover{
 /* Clase para ocultar el mensaje al empezar */
 .oculto {
     display: none !important;
+}
+.mostrar {
+    display: flex !important;
 }

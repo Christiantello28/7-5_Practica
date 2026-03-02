@@ -78,7 +78,7 @@
         arrayCartas.splice(random, 1); 
         document.getElementById("tapete").appendChild(nuevaImagen);
       }else{
-
+        derrota();
       }
     }
     let valorB=0.0;
@@ -97,7 +97,13 @@
           arrayCartas.splice(random, 1); 
           console.log(arrayCartas.length);
           document.getElementById("banca").appendChild(nuevaImagen);
-
       }
+    }
+
+    function victoria(){
+      document.getElementById("mensaje-victoria").className="mostrar";
+    }
+    function derrota(){
+      document.getElementById("mensaje-derrota").className="mostrar";
     }
    
