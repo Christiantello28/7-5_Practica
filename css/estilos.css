@@ -57,3 +57,42 @@ button:hover{
     gap: 10px;       /* Espacio entre botones */
     z-index: 100;    /* Para que siempre estén por encima de las cartas */
 }
+#banca {
+    display: flex;            /* Alinea los hijos (las cartas) en fila */
+    flex-direction: row;      /* Fuerza la dirección horizontal */
+    justify-content: center;  /* Centra el grupo de cartas horizontalmente */
+    align-items: center;      /* Centra las cartas verticalmente dentro del área */
+    flex-wrap: nowrap;        /* Evita que bajen a la siguiente línea si no caben */
+    gap: 10px;                /* Añade un espacio elegante entre cada carta */
+    width: 100%;              /* Asegura que el contenedor use todo el ancho */
+    margin-bottom: 20px;      /* Separación entre secciones */
+}
+
+/* 2. Ajustamos las cartas individualmente */
+#banca img {
+    width: 120px;          /* Ajusta el tamaño a tu gusto */
+    margin: 10px;          /* Espacio entre cartas */
+    transition: transform 0.3s; /* Por si quieres efectos al aparecer */
+}
+
+#mensaje-derrota {
+    position: fixed;        /* Se fija a la ventana del navegador */
+    top: 50%;               /* Lo mueve al centro vertical */
+    left: 50%;              /* Lo mueve al centro horizontal */
+    transform: translate(-50%, -50%); /* Ajuste perfecto para centrar su propio eje */
+    z-index: 1000;          /* Asegura que esté por encima de cartas y botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mensaje-derrota img {
+    max-width: 80vw;        /* Evita que sea más grande que la pantalla */
+    border-radius: 20px;    /* Opcional: para bordes suaves como tu dibujo */
+    box-shadow: 0 0 50px rgba(0,0,0,0.8); /* Sombra para dar profundidad */
+}
+
+/* Clase para ocultar el mensaje al empezar */
+.oculto {
+    display: none !important;
+}
