@@ -1,3 +1,4 @@
+ 
  class carta {
         constructor (arg1, arg2) {
             this.valor=parseInt(arg1);
@@ -59,17 +60,39 @@
                     carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
                     carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
 
+    let plantarse=false;
+    let valor=0;
     function sacarcarta(){
+      valor=new carta();
+      console.log(valor);
+      if(valor<=7.5 || plantarse==false){
+        var nuevaImagen = document.createElement("img");
+  
+        var random=Math.floor(Math.random()*arrayCartas.length)
+        var elegido=arrayCartas[random];
+        nuevaImagen.src=elegido.url;
+  
+        arrayCartas.splice(random, 1); 
+        console.log(arrayCartas.length);
+        document.getElementById("tapete").appendChild(nuevaImagen);
+      }
 
-      var nuevaImagen = document.createElement("img");
+    }
 
-      var random=Math.floor(Math.random()*arrayCartas.length)
-      var elegido=arrayCartas[random];
-      nuevaImagen.src=elegido.url;
+    function Pantarse(){
 
-      arrayCartas.splice(random, 1); 
-      console.log(arrayCartas.length);
-      document.getElementById("tapete").appendChild(nuevaImagen);
+      plantarse=true;
+      for(let i=0; i<valor; i++){
+        var nuevaImagen = document.createElement("img");
+    
+          var random=Math.floor(Math.random()*arrayCartas.length)
+          var elegido=arrayCartas[random];
+          nuevaImagen.src=elegido.url;
+    
+          arrayCartas.splice(random, 1); 
+          console.log(arrayCartas.length);
+          document.getElementById("tapete").appendChild(nuevaImagen);
 
+      }
     }
    
