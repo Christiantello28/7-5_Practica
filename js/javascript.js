@@ -64,7 +64,6 @@
     let valor=0.0;
 
     function sacarcarta(){
-     
       if(valor<=7.5 && plantarse==false){
         var nuevaImagen = document.createElement("img");
   
@@ -75,11 +74,18 @@
         valor+=parseFloat(elegido.valor);
         console.log("jugador: "+valor);
 
+        if(valor>7.5){
+          derrota();
+        }else{
+
+        }
+
         arrayCartas.splice(random, 1); 
         document.getElementById("tapete").appendChild(nuevaImagen);
-      }else{
-        derrota();
+        
       }
+        
+      
     }
     let valorB=0.0;
     function Plantarse(){
@@ -98,12 +104,22 @@
           console.log(arrayCartas.length);
           document.getElementById("banca").appendChild(nuevaImagen);
       }
+      if(valorB<7.5){
+        if(valor<=valorB){
+          derrota();
+        }else{
+          victoria();
+        }
+      }else{
+        victoria();
+      }
     }
-
     function victoria(){
-      document.getElementById("mensaje-victoria").className="mostrar";
+      var elm=document.getElementById("mensaje-victoria");
+      elm.setAttribute("class", "mostrar");
     }
     function derrota(){
-      document.getElementById("mensaje-derrota").className="mostrar";
+      var elm=document.getElementById("mensaje-derrota");
+      elm.setAttribute("class", "mostrar");
     }
    
