@@ -8,7 +8,7 @@ div{
     display: inline;
     width: 200px;
 }
-h3{
+h3 {
     color: red;             /* Color de la fuente */
     text-align: center;     /* Centra el texto horizontalmente */
     font-family: Arial, sans-serif; /* O la fuente que prefieras */

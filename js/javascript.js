@@ -9,7 +9,7 @@
     function tienda(){
 
     }
-    
+    //creamos los objetos
     //oros (1-10)
     var carta1 = new carta(1,"img/1oros.png");
     var carta2 = new carta(2,"img/2oros.png");
@@ -55,7 +55,7 @@
     var carta39 = new carta(0.5,"img/caballobastos.png");
     var carta40 = new carta(0.5,"img/reybastos.png");
 
-    var arrayCartas=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,carta10,
+    var arrayCartas1=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,carta10,
                     carta11,carta12,carta13,carta14,carta15,carta16,carta17,carta18,carta19,carta20,
                     carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
                     carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
@@ -67,8 +67,8 @@
       if(valor<=7.5 && plantarse==false){
         var nuevaImagen = document.createElement("img");
   
-        var random=Math.floor(Math.random()*arrayCartas.length)
-        var elegido=arrayCartas[random];
+        var random=Math.floor(Math.random()*arrayCartas1.length)
+        var elegido=arrayCartas1[random];
         nuevaImagen.src=elegido.url;
 
         valor+=parseFloat(elegido.valor);
@@ -80,7 +80,7 @@
 
         }
 
-        arrayCartas.splice(random, 1); 
+        arrayCartas1.splice(random, 1); 
         document.getElementById("tapete").appendChild(nuevaImagen);
         
       }
@@ -93,18 +93,18 @@
       while(valorB<valor){
         var nuevaImagen = document.createElement("img");
     
-          var random=Math.floor(Math.random()*arrayCartas.length)
-          var elegido=arrayCartas[random];
+          var random=Math.floor(Math.random()*arrayCartas1.length)
+          var elegido=arrayCartas1[random];
           nuevaImagen.src=elegido.url;
 
           valorB+=parseFloat(elegido.valor);
           console.log("banca: "+valorB); 
 
-          arrayCartas.splice(random, 1); 
-          console.log(arrayCartas.length);
+          arrayCartas1.splice(random, 1); 
+          console.log(arrayCartas1.length);
           document.getElementById("banca").appendChild(nuevaImagen);
       }
-      if(valorB<7.5){
+      if(valorB<=7.5){
         if(valor<=valorB){
           setTimeout(derrota,1000);
         }else{
@@ -119,9 +119,23 @@
     function victoria(){
       var elm=document.getElementById("mensaje-victoria");
       elm.setAttribute("class", "mostrar");
+      ocultar();
     }
     function derrota(){
       var elm=document.getElementById("mensaje-derrota");
       elm.setAttribute("class", "mostrar");
+      ocultar();
     }
    
+    function ocultar(){
+      var elm=document.getElementById("tapete");
+      elm.setAttribute("class", "oculto");
+      var elm2=document.getElementById("banca");
+      elm2.setAttribute("class", "oculto");
+      var elm3=document.getElementById("botones");
+      elm3.setAttribute("class", "oculto");
+      var elm4=document.getElementById("tuscartas");
+      elm4.setAttribute("class", "oculto");
+      var elm5=document.getElementById("cartasbanca");
+      elm5.setAttribute("class", "oculto");
+    }
