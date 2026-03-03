@@ -75,7 +75,7 @@
         console.log("jugador: "+valor);
 
         if(valor>7.5){
-          derrota();
+           setTimeout(derrota,500);
         }else{
 
         }
@@ -106,12 +106,14 @@
       }
       if(valorB<7.5){
         if(valor<=valorB){
-          derrota();
+          setTimeout(derrota,1000);
         }else{
-          victoria();
+          setTimeout(victoria,1000);
+          
         }
       }else{
-        victoria();
+        setTimeout(victoria,1000);
+        
       }
     }
     function victoria(){
