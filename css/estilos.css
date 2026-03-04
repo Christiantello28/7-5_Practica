@@ -140,5 +140,11 @@ button:hover{
 }
 
 #cambiar{
-    
+    font-size: 20px;
+    position: absolute; /* Lo saca del flujo normal para moverlo libremente */
+    bottom: 40px;       /* Distancia desde el borde inferior */
+    right: 20px;        /* Distancia desde el borde derecho */
+    width: 100px;
+    height: 30px;
 }
+
