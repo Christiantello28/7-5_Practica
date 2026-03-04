@@ -116,3 +116,25 @@ button:hover{
 .mostrar {
     display: flex !important;
 }
+#lista{
+    
+    position: fixed; /* Lo fija respecto a la pantalla */
+    bottom: 20px;    /* Separación de 20px del borde inferior */
+    left: 90%;
+    right: 0;
+    display: flex;   /* Usamos flex para centrar contenido */
+    justify-content: center; 
+    gap: 10px;       /* Espacio entre botones */
+    z-index: 100;
+    
+}
+#lista:hover{
+    background-color: rgb(167, 144, 160);
+    color: rgb(24, 88, 88);
+    
+}
+
+#lista{
+    background-color: greenyellow;
+    color: rgb(14, 44, 44);
+}
