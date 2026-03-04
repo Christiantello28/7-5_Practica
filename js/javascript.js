@@ -6,9 +6,6 @@
         }
       }
 
-    function tienda(){
-
-    }
     //creamos los objetos
     //oros (1-10)
     var carta1 = new carta(1,"img/1oros.png");
@@ -55,11 +52,70 @@
     var carta39 = new carta(0.5,"img/caballobastos.png");
     var carta40 = new carta(0.5,"img/reybastos.png");
 
-    var arrayCartas1=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,carta10,
+    //creamos los objetos
+    //picas (1-10)
+    var carta41 = new carta(1,"img/poker/Apicas");
+    var carta42 = new carta(2,"img/poker/2picas");
+    var carta43 = new carta(3,"img/poker/3picas");
+    var carta44 = new carta(4,"img/poker/4picas");
+    var carta45 = new carta(5,"img/poker/5picas");
+    var carta46 = new carta(6,"img/poker/6picas");
+    var carta47 = new carta(7,"img/poker/7picas");
+    var carta48 = new carta(0.5,"img/poker/jpicas");
+    var carta49 = new carta(0.5,"img/poker/qpicas");
+    var carta50 = new carta(0.5,"img/poker/kpicas");
+    //rombos (11-20)
+    var carta51 = new carta(1,"img/poker/Arombos");
+    var carta52 = new carta(2,"img/poker/2rombos");
+    var carta53 = new carta(3,"img/poker/3rombos");
+    var carta54 = new carta(4,"img/poker/4rombos");
+    var carta55 = new carta(5,"img/poker/5rombos");
+    var carta56 = new carta(6,"img/poker/6rombos");
+    var carta57 = new carta(7,"img/poker/7rombos");
+    var carta58 = new carta(0.5,"img/poker/jrombos");
+    var carta59 = new carta(0.5,"img/poker/qrombos");
+    var carta60 = new carta(0.5,"img/poker/krombos");
+    //espadas (21-30)
+    var carta61 = new carta(1,"img/poker/Atrebol");
+    var carta62 = new carta(2,"img/poker/2trebol");
+    var carta63 = new carta(3,"img/poker/3trebol");
+    var carta64 = new carta(4,"img/poker/4trebol");
+    var carta65 = new carta(5,"img/poker/5trebol");
+    var carta66 = new carta(6,"img/poker/6trebol");
+    var carta67 = new carta(7,"img/poker/7trebol");
+    var carta68 = new carta(0.5,"img/poker/jtrebol");
+    var carta69 = new carta(0.5,"img/poker/qtrebol");
+    var carta70 = new carta(0.5,"img/poker/ktrebol");
+    //bastos (31-40)
+    var carta71 = new carta(1,"img/poker/Acorazones");
+    var carta72 = new carta(2,"img/poker/2corazones");
+    var carta73 = new carta(3,"img/poker/3corazones");
+    var carta74 = new carta(4,"img/poker/4corazones");
+    var carta75 = new carta(5,"img/poker/5corazones");
+    var carta76 = new carta(6,"img/poker/6corazones");
+    var carta77 = new carta(7,"img/poker/7corazones");
+    var carta78 = new carta(0.5,"img/poker/jcorazones");
+    var carta79 = new carta(0.5,"img/poker/qcorazones");
+    var carta80 = new carta(0.5,"img/poker/kcorazones");
+
+    var arrayCartasP=[carta41,carta42,carta43,carta44,carta45,carta46,carta47,carta48,carta49,carta50,
+                    carta51,carta52,carta53,carta54,carta55,carta56,carta57,carta58,carta59,carta60,
+                    carta61,carta62,carta63,carta64,carta65,carta66,carta67,carta68,carta69,carta70,
+                    carta71,carta72,carta73,carta74,carta75,carta76,carta77,carta78,carta79,carta80];
+
+    var arrayCartasE=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,carta10,
                     carta11,carta12,carta13,carta14,carta15,carta16,carta17,carta18,carta19,carta20,
                     carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
                     carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
-
+    var arrayCartas1=arrayCartasE;
+    function baraja(){
+      var opcion=document.getElementById("lista").value;
+      if(opcion==1){
+        arraycartas1=arrayCartasE;
+      }else{
+        arraycartas1=arrayCartasP;
+      }
+    }
     let plantarse=false;
     let valor=0.0;
 
