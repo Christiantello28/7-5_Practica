@@ -49,7 +49,7 @@ button:hover{
 }
 #botones {
     position: fixed; /* Lo fija respecto a la pantalla */
-    bottom: 20px;    /* Separación de 20px del borde inferior */
+    bottom: 40px;    /* Separación de 20px del borde inferior */
     left: 45%;
     right: 0;
     display: flex;   /* Usamos flex para centrar contenido */
@@ -137,4 +137,8 @@ button:hover{
 #lista{
     background-color: greenyellow;
     color: rgb(14, 44, 44);
+}
+
+#cambiar{
+    
 }
