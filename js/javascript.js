@@ -108,16 +108,22 @@
                     carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
                     carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
     var arrayCartas1=arrayCartasE;
-    function baraja(){
-      var opcion=document.getElementById("lista").value;
-      if(opcion==1){
-        arraycartas1=arrayCartasE;
-      }else{
-        arraycartas1=arrayCartasP;
-      }
-    }
+    
     let plantarse=false;
     let valor=0.0;
+
+    function baraja(){
+      var opcion=parseInt(document.getElementById("lista").value);
+      if(valor==0){
+        if(opcion==1){
+          arraycartas1=arrayCartasE;
+        }else{
+          arraycartas1=arrayCartasP;
+        }
+      }else{
+        alert("no puedes cambiar las cartas a mitad de partida");
+      }
+    }
 
     function sacarcarta(){
       if(valor<=7.5 && plantarse==false){
