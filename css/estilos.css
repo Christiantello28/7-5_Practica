@@ -9,13 +9,12 @@ div{
     width: 200px;
 }
 h3 {
-    color: red;             /* Color de la fuente */
+    color: rgb(172, 0, 0);             /* Color de la fuente */
     text-align: center;     /* Centra el texto horizontalmente */
     font-family: Arial, sans-serif; /* O la fuente que prefieras */
-    font-size: 24px;        /* Ajusta el tamaño según necesites */
+    font-size: 20px;        /* Ajusta el tamaño según necesites */
     margin-bottom: 10px;    /* Espacio entre el texto y las cartas */
-    margin-top: 20px;
-    
+    margin-top: 15px;
 }
 /* Asumiendo que las cartas están dentro de un div contenedor */
 /* 1. Configuramos el contenedor de las cartas */
@@ -27,14 +26,14 @@ h3 {
     flex-wrap: nowrap;        /* Evita que bajen a la siguiente línea si no caben */
     gap: 10px;                /* Añade un espacio elegante entre cada carta */
     width: 100%;              /* Asegura que el contenedor use todo el ancho */
-    margin-bottom: 20px;      /* Separación entre secciones */
+    margin-bottom: 10px;      /* Separación entre secciones */
 }
 
 /* 2. Ajustamos las cartas individualmente */
 #tapete img {
-    width: 120px;          /* Ajusta el tamaño a tu gusto */
+    width: 100px;          /* Ajusta el tamaño a tu gusto */
     margin: 10px;          /* Espacio entre cartas */
-    transition: transform 0.3s; /* Por si quieres efectos al aparecer */
+    transition: cubic-bezier(1, 0, 0, 1) 0.3s; /* Por si quieres efectos al aparecer */
 }
 button{
     font-size: 40px;
