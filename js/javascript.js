@@ -112,7 +112,9 @@
     
     let plantarse=false;
     let valor=0.0;
-
+    /**
+     * funcion que estableca la baraja que se usara en la partida
+     */
     function baraja(){
       var opcion=parseInt(document.getElementById("lista").value);
       console.log(opcion);
@@ -128,7 +130,9 @@
         alert("no puedes cambiar las cartas a mitad de partida");
       }
     }
-
+     /**
+     * funcion que hace que el jugador pueda tirar cartas
+     */
     function sacarcarta(){
       if(valor<=7.5 && plantarse==false){
         var nuevaImagen = document.createElement("img");
@@ -154,6 +158,9 @@
       
     }
     let valorB=0.0;
+    /**
+     * funcion que hace que el jugador no pueda tirar cartas, tambien hace que la banca saque sus cartas
+     */
     function Plantarse(){
       plantarse=true;
       while(valorB<valor){
@@ -182,17 +189,25 @@
         
       }
     }
+    /**
+     * funcion que muestra el cartel de victoria
+     */
     function victoria(){
       var elm=document.getElementById("mensaje-victoria");
       elm.setAttribute("class", "mostrar");
       ocultar();
     }
+    /**
+     * funcion que muestra el cartel de Derrota
+     */
     function derrota(){
       var elm=document.getElementById("mensaje-derrota");
       elm.setAttribute("class", "mostrar");
       ocultar();
     }
-   
+    /**
+     * funcion que oculta el contenido
+     */
     function ocultar(){
       var elm=document.getElementById("tapete");
       elm.setAttribute("class", "oculto");
