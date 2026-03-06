@@ -1,5 +1,10 @@
  
  class carta {
+        /**
+        * Constructor de la clase carta
+        * @param {*} arg1 - el valor de la carta 
+        * @param {*} arg2 - la url de la carta
+        */
         constructor (arg1, arg2) {
             this.valor=parseFloat(arg1);
             this.url=(arg2);
@@ -97,19 +102,21 @@
     var carta78 = new carta(0.5,"img/poker/jcorazones.png");
     var carta79 = new carta(0.5,"img/poker/qcorazones.png");
     var carta80 = new carta(0.5,"img/poker/kcorazones.png");
-
+    
+    //creamos un array para la baraja francesa
     var arrayCartasP=[carta41,carta42,carta43,carta44,carta45,carta46,carta47,carta48,carta49,carta50,
                     carta51,carta52,carta53,carta54,carta55,carta56,carta57,carta58,carta59,carta60,
                     carta61,carta62,carta63,carta64,carta65,carta66,carta67,carta68,carta69,carta70,
                     carta71,carta72,carta73,carta74,carta75,carta76,carta77,carta78,carta79,carta80];
-
+    
+    //creamos un array para la baraja española
     var arrayCartasE=[carta1,carta2,carta3,carta4,carta5,carta6,carta7,carta8,carta9,carta10,
                     carta11,carta12,carta13,carta14,carta15,carta16,carta17,carta18,carta19,carta20,
                     carta21,carta22,carta23,carta24,carta25,carta26,carta27,carta28,carta29,carta30,
                     carta31,carta32,carta33,carta34,carta35,carta36,carta37,carta38,carta39,carta40];
-    
+    //asignamos el array de cartas de la baraja española a la que usaremos en la logica
     var arrayCartas1=arrayCartasE;
-    
+    //declaramos e inicializamos varibles
     let plantarse=false;
     let valor=0.0;
     /**
@@ -118,13 +125,15 @@
     function baraja(){
       var opcion=parseInt(document.getElementById("lista").value);
       console.log(opcion);
+      //si el valor es 0 es decir no se ha jugado todavia dejaremos que ca,mbie de baraja, si no mostraremos una alerta
       if(valor==0){
+        //dependiendo la opcion que ponga el usuario usaremos una baraja o otra
         if(opcion==1){
           arrayCartas1=arrayCartasE;
-          console.log(arrayCartas1);
+          //console.log(arrayCartas1);
         }else{
           arrayCartas1=arrayCartasP;
-          console.log(arrayCartas1);
+          //console.log(arrayCartas1);
         }
       }else{
         alert("no puedes cambiar las cartas a mitad de partida");
@@ -134,81 +143,93 @@
      * funcion que hace que el jugador pueda tirar cartas
      */
     function sacarcarta(){
+      //el jugador podra sacar cartas siempre que no se haya pasado y no le haya pulsado l boton "plantarse"
       if(valor<=7.5 && plantarse==false){
+        //creamos un nuevo elemento nueva imagen
         var nuevaImagen = document.createElement("img");
-  
+        //hacemos un numero random
         var random=Math.floor(Math.random()*arrayCartas1.length)
+        //cogemos una carta al azar y la añadimos a la nuevaimagen
         var elegido=arrayCartas1[random];
         nuevaImagen.src=elegido.url;
-
+        //guardamos el valor de la carta que ha salido y lo sumamos al que ya teniamos
         valor+=parseFloat(elegido.valor);
-        console.log("jugador: "+valor);
-
+        //console.log("jugador: "+valor);
+        //si el jugador se pasa mostramos que ha perdido
         if(valor>7.5){
            setTimeout(derrota,500);
-        }else{
-
         }
-
+        //eliminamos esa carta del array
         arrayCartas1.splice(random, 1); 
+        //añadimos el elemento como un hijo de "tapete"
         document.getElementById("tapete").appendChild(nuevaImagen);
-        
-      }
-        
-      
+      }  
     }
     let valorB=0.0;
     /**
      * funcion que hace que el jugador no pueda tirar cartas, tambien hace que la banca saque sus cartas
      */
     function Plantarse(){
+      //establecemos plantarse a "TRUE"
       plantarse=true;
       while(valorB<valor){
-        var nuevaImagen = document.createElement("img");
-    
+          //creamos una nueva imagen
+          var nuevaImagen = document.createElement("img");
+          //creamos un numero aleatorio
           var random=Math.floor(Math.random()*arrayCartas1.length)
+          //sacamos una carta aleatoria
           var elegido=arrayCartas1[random];
+          //le asignamos el url de la carta a la nuevaimagen
           nuevaImagen.src=elegido.url;
-
+          //guardamos el valor de la carta sacada por la banca
           valorB+=parseFloat(elegido.valor);
-          console.log("banca: "+valorB); 
-
+          //console.log("banca: "+valorB); 
+          //borramos esa carta del array
           arrayCartas1.splice(random, 1); 
-          console.log(arrayCartas1.length);
+          //console.log(arrayCartas1.length);
+          //mostramos esa carta
           document.getElementById("banca").appendChild(nuevaImagen);
       }
+      //si la banca tiene menos o exactamente 7.5
       if(valorB<=7.5){
+        //si el valor de la banca es mayor que el del usuario mostrara el cartel de derorta, si no mostrara el de victoria
         if(valor<=valorB){
           setTimeout(derrota,1000);
         }else{
           setTimeout(victoria,1000);
-          
         }
       }else{
+        //si la banca se pasa se mostrara el cartel de victoria
         setTimeout(victoria,1000);
-        
       }
     }
     /**
      * funcion que muestra el cartel de victoria
      */
     function victoria(){
+      //obtenemos el eleemnto "mensaje-victoria"
       var elm=document.getElementById("mensaje-victoria");
+      //cambiamos su "class" (actualmente en "oculto") a "mostrar"
       elm.setAttribute("class", "mostrar");
+      //lamamos a la funcion "ocultar"
       ocultar();
     }
     /**
      * funcion que muestra el cartel de Derrota
      */
     function derrota(){
+      //obtenemos el eleemnto "mensaje-derrota"
       var elm=document.getElementById("mensaje-derrota");
+      //cambiamos su "class" (actualmente en "oculto") a "mostrar"
       elm.setAttribute("class", "mostrar");
+      //lamamos a la funcion "ocultar"
       ocultar();
     }
     /**
      * funcion que oculta el contenido
      */
     function ocultar(){
+      //cambia los "class a "oculto"
       var elm=document.getElementById("tapete");
       elm.setAttribute("class", "oculto");
       var elm2=document.getElementById("banca");
