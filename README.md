@@ -15,10 +15,10 @@ CSS: Usado para dar forma y aspecto a los objetos del html
 JAVASCRIPT: Usado para hacer la logica del juego
 
 *INSTALACIÓN Y CONFIGURACIÓN:*    
-1º) DESCARGAR el .rar de la version deseada
-2º) DESCOMPRIMIR el archivo donde se deseé
-3º) EJECUTAR el archivo "INDEX.HTML"
-4º) DISFRUTAR!!!
+1º) DESCARGAR el .rar de la version deseada  
+2º) DESCOMPRIMIR el archivo donde se deseé  
+3º) EJECUTAR el archivo "INDEX.HTML"  
+4º) DISFRUTAR!!!  
 
 ![primer-gif](https://github.com/user-attachments/assets/963bf873-f4b1-48af-b609-2421255e655d)
 
