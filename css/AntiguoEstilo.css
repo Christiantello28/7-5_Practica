@@ -1,0 +1,149 @@
+
+ body{
+    background-color: rgb(5, 61, 5);
+     margin-left: auto;
+    margin-right: auto;
+ }
+div{
+    display: inline;
+    width: 200px;
+}
+h3 {
+    color: rgb(172, 0, 0);             /* Color de la fuente */
+    text-align: center;     /* Centra el texto horizontalmente */
+    font-family: Arial, sans-serif; /* O la fuente que prefieras */
+    font-size: 20px;        /* Ajusta el tamaño según necesites */
+    margin-bottom: 10px;    /* Espacio entre el texto y las cartas */
+    margin-top: 15px;
+}
+/* Asumiendo que las cartas están dentro de un div contenedor */
+/* 1. Configuramos el contenedor de las cartas */
+#tapete {
+    display: flex;            /* Alinea los hijos (las cartas) en fila */
+    flex-direction: row;      /* Fuerza la dirección horizontal */
+    justify-content: center;  /* Centra el grupo de cartas horizontalmente */
+    align-items: center;      /* Centra las cartas verticalmente dentro del área */
+    flex-wrap: nowrap;        /* Evita que bajen a la siguiente línea si no caben */
+    gap: 10px;                /* Añade un espacio elegante entre cada carta */
+    width: 100%;              /* Asegura que el contenedor use todo el ancho */
+    margin-bottom: 10px;      /* Separación entre secciones */
+}
+
+/* 2. Ajustamos las cartas individualmente */
+#tapete img {
+    width: 100px;          /* Ajusta el tamaño a tu gusto */
+    margin: 10px;          /* Espacio entre cartas */
+    transition: cubic-bezier(1, 0, 0, 1) 0.3s; /* Por si quieres efectos al aparecer */
+}
+button{
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: greenyellow; 
+    color: rgb(14, 44, 44);
+    border-radius: 20%;
+}
+button:hover{
+    background-color: rgb(167, 144, 160);
+    color: rgb(24, 88, 88);
+}
+#botones {
+    position: fixed; /* Lo fija respecto a la pantalla */
+    bottom: 40px;    /* Separación de 20px del borde inferior */
+    left: 44%;
+    right: 0;
+    display: flex;   /* Usamos flex para centrar contenido */
+    justify-content: center; 
+    gap: 10px;       /* Espacio entre botones */
+    z-index: 100;    /* Para que siempre estén por encima de las cartas */
+}
+#banca {
+    display: flex;            /* Alinea los hijos (las cartas) en fila */
+    flex-direction: row;      /* Fuerza la dirección horizontal */
+    justify-content: center;  /* Centra el grupo de cartas horizontalmente */
+    align-items: center;      /* Centra las cartas verticalmente dentro del área */
+    flex-wrap: nowrap;        /* Evita que bajen a la siguiente línea si no caben */
+    gap: 10px;                /* Añade un espacio elegante entre cada carta */
+    width: 100%;              /* Asegura que el contenedor use todo el ancho */
+    margin-bottom: 20px;      /* Separación entre secciones */
+}
+
+/* 2. Ajustamos las cartas individualmente */
+#banca img {
+    width: 120px;          /* Ajusta el tamaño a tu gusto */
+    margin: 10px;          /* Espacio entre cartas */
+    transition: transform 0.3s; /* Por si quieres efectos al aparecer */
+}
+
+#mensaje-derrota {
+    position: fixed;        /* Se fija a la ventana del navegador */
+    top: 50%;               /* Lo mueve al centro vertical */
+    left: 50%;              /* Lo mueve al centro horizontal */
+    transform: translate(-50%, -50%); /* Ajuste perfecto para centrar su propio eje */
+    z-index: 1000;          /* Asegura que esté por encima de cartas y botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mensaje-derrota video {
+    max-width: 80vw;        /* Evita que sea más grande que la pantalla */
+    border-radius: 20px;    /* Opcional: para bordes suaves como tu dibujo */
+    box-shadow: 0 0 50px rgba(0,0,0,0.8); /* Sombra para dar profundidad */
+}
+
+#mensaje-victoria {
+    position: fixed;        /* Se fija a la ventana del navegador */
+    top: 50%;               /* Lo mueve al centro vertical */
+    left: 50%;              /* Lo mueve al centro horizontal */
+    transform: translate(-50%, -50%); /* Ajuste perfecto para centrar su propio eje */
+    z-index: 1000;          /* Asegura que esté por encima de cartas y botones */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mensaje-victoria video {
+    max-width: 80vw;        /* Evita que sea más grande que la pantalla */
+    border-radius: 20px;    /* Opcional: para bordes suaves como tu dibujo */
+    box-shadow: 0 0 50px rgba(0,0,0,0.8); /* Sombra para dar profundidad */
+}
+
+/* Clase para ocultar el mensaje al empezar */
+.oculto {
+    display: none !important;
+}
+.mostrar {
+    display: flex !important;
+}
+#lista{
+    
+    position: fixed; /* Lo fija respecto a la pantalla */
+    bottom: 20px;    /* Separación de 20px del borde inferior */
+    left: 90%;
+    right: 0;
+    display: flex;   /* Usamos flex para centrar contenido */
+    justify-content: center; 
+    gap: 10px;       /* Espacio entre botones */
+    z-index: 100;
+    
+}
+#lista:hover{
+    background-color: rgb(167, 144, 160);
+    color: rgb(24, 88, 88);
+    
+}
+
+#lista{
+    background-color: greenyellow;
+    color: rgb(14, 44, 44);
+}
+
+#cambiar{
+    font-size: 20px;
+    position: absolute; /* Lo saca del flujo normal para moverlo libremente */
+    bottom: 40px;       /* Distancia desde el borde inferior */
+    right: 20px;        /* Distancia desde el borde derecho */
+    width: 100px;
+    height: 30px;
+}
+
