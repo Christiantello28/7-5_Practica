@@ -157,7 +157,7 @@
         //console.log("jugador: "+valor);
         //si el jugador se pasa mostramos que ha perdido
         if(valor>7.5){
-           setTimeout(derrota,500);
+          setTimeout(derrota,500);
         }
         //eliminamos esa carta del array
         arrayCartas1.splice(random, 1); 
@@ -166,10 +166,21 @@
       }  
     }
     let valorB=0.0;
+
     /**
-     * funcion que hace que el jugador no pueda tirar cartas, tambien hace que la banca saque sus cartas
+     * Hemos creado una constante "sleep" que lo que hace es crear un objeto "promise"
+     * un objeto primise es un objeto de java script que le indica a una funcion asincrona que algo va a pasar o no
+     * la funcion espera a la respuesta de esa promesa y cuando la recibe sigue con el flujo del programa
+     * Una funcion es asincrona cuando puede pausar el flujo normal de ejecución
+     * en este caso se espera los ms del parametro para sacr la siguiente carta
+     * @param {*} ms - son los milisegundos que tiene que esperar la funcion
+     * @returns la promesa cumplida pada que continue el bucle
      */
-    function Plantarse(){
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    /**
+     * funcion asincrona que hace que el jugador no pueda tirar cartas, tambien hace que la banca saque sus cartas
+    */
+    async function Plantarse(){
       //establecemos plantarse a "TRUE"
       plantarse=true;
       while(valorB<valor){
@@ -189,24 +200,26 @@
           //console.log(arrayCartas1.length);
           //mostramos esa carta
           document.getElementById("banca").appendChild(nuevaImagen);
-          setTimeout(a,1000);
+
+          //await detiene la ejecucion del programa (en este caso del bucle) hasta que pasa el tiempo (ms) pasado como parametro
+          //cuando este tiempo acaba el programa sigue su flujo normal
+          await sleep(600);
       }
       //si la banca tiene menos o exactamente 7.5
       if(valorB<=7.5){
         //si el valor de la banca es mayor que el del usuario mostrara el cartel de derorta, si no mostrara el de victoria
         if(valor<=valorB){
-          setTimeout(derrota,3000);
+          setTimeout(derrota,1000);
         }else{
-          setTimeout(victoria,3000);
+          setTimeout(victoria,1000);
         }
       }else{
         //si la banca se pasa se mostrara el cartel de victoria
-        setTimeout(victoria,3000);
+        setTimeout(victoria,1000);
       }
     }
-    function a(){
 
-    }
+
     /**
      * funcion que muestra el cartel de victoria
      */
