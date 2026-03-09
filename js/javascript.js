@@ -157,7 +157,7 @@
         //console.log("jugador: "+valor);
         //si el jugador se pasa mostramos que ha perdido
         if(valor>7.5){
-           setTimeout(derrota,500);
+          setTimeout(derrota,500);
         }
         //eliminamos esa carta del array
         arrayCartas1.splice(random, 1); 
@@ -166,10 +166,21 @@
       }  
     }
     let valorB=0.0;
+
     /**
-     * funcion que hace que el jugador no pueda tirar cartas, tambien hace que la banca saque sus cartas
+     * Hemos creado una constante "sleep" que lo que hace es crear un objeto "promise"
+     * un objeto primise es un objeto de java script que le indica a una funcion asincrona que algo va a pasar o no
+     * la funcion espera a la respuesta de esa promesa y cuando la recibe sigue con el flujo del programa
+     * Una funcion es asincrona cuando puede pausar el flujo normal de ejecución
+     * en este caso se espera los ms del parametro para sacr la siguiente carta
+     * @param {*} ms - son los milisegundos que tiene que esperar la funcion
+     * @returns la promesa cumplida pada que continue el bucle
      */
-    function Plantarse(){
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+    /**
+     * funcion asincrona que hace que el jugador no pueda tirar cartas, tambien hace que la banca saque sus cartas
+    */
+    async function Plantarse(){
       //establecemos plantarse a "TRUE"
       plantarse=true;
       while(valorB<valor){
@@ -189,6 +200,10 @@
           //console.log(arrayCartas1.length);
           //mostramos esa carta
           document.getElementById("banca").appendChild(nuevaImagen);
+
+          //await detiene la ejecucion del programa (en este caso del bucle) hasta que pasa el tiempo (ms) pasado como parametro
+          //cuando este tiempo acaba el programa sigue su flujo normal
+          await sleep(600);
       }
       //si la banca tiene menos o exactamente 7.5
       if(valorB<=7.5){
@@ -203,6 +218,8 @@
         setTimeout(victoria,1000);
       }
     }
+
+
     /**
      * funcion que muestra el cartel de victoria
      */
@@ -226,6 +243,18 @@
       ocultar();
     }
     /**
+     * Funcion que recarga la pagina
+     */
+    function newGame(){
+      location.reload();
+    }
+    
+    function mostrarNewGame(){
+      var elm8=document.getElementById("newGame");
+      elm8.setAttribute("class", "mostrar");
+    }
+
+    /**
      * funcion que oculta el contenido
      */
     function ocultar(){
@@ -240,4 +269,11 @@
       elm4.setAttribute("class", "oculto");
       var elm5=document.getElementById("cartasbanca");
       elm5.setAttribute("class", "oculto");
+      var elm6=document.getElementById("lista");
+      elm6.setAttribute("class", "oculto");
+      var elm7=document.getElementById("cambiar");
+      elm7.setAttribute("class", "oculto");
+
+      setTimeout(mostrarNewGame,700);
     }
+
