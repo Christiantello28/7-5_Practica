@@ -1,0 +1,194 @@
+/* =========================================
+   VARIABLES Y CONFIGURACIÓN
+   ========================================= */
+:root {
+    --color-fondo: rgb(5, 61, 5);
+    --color-primario: #adff2f; /* greenyellow */
+    --color-secundario: #a790a0;
+    --color-texto-h3: #ff4d4d;
+    --color-boton-texto: #0e2c2c;
+    --sombra-cartas: 0 4px 8px rgba(0,0,0,0.5);
+    --transicion: all 0.3s ease;
+}
+
+/* =========================================
+   RESETEO Y CUERPO
+   ========================================= */
+body {
+    background-color: var(--color-fondo);
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* =========================================
+   TIPOGRAFÍA
+   ========================================= */
+h3.texto {
+    color: var(--color-texto-h3);
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0 10px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   TAPETE Y CARTAS (REUTILIZABLE)
+   ========================================= */
+#tapete, #banca {
+    display: flex;
+    flex-wrap: wrap; /* Permite que las cartas bajen si no caben en móviles */
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    max-width: 1000px;
+    min-height: 180px;
+    padding: 20px;
+    border: 2px dashed rgba(255,255,255,0.2);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    background-color: rgba(2, 37, 2, 0.774);;
+}
+
+#tapete img, #banca img {
+    width: 110px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--sombra-cartas);
+    transition: var(--transicion);
+    animation: aparecerCarta 0.4s ease-out;
+}
+
+#tapete img:hover, #banca img:hover {
+    transform: translateY(-10px) rotate(2deg);
+}
+
+@keyframes aparecerCarta {
+    from { opacity: 0; transform: scale(0.5) translateY(50px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* =========================================
+   CONTROLES Y BOTONES
+   ========================================= */
+#botones {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 100;
+}
+
+#cambiar {
+    position: fixed;
+    bottom: 30px;
+    left: 95%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 100;
+}
+#lista {
+    position: fixed;
+    bottom: 60px;
+    left: 95%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 100;
+}
+
+#newGame {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 2000;
+}
+
+button {
+    padding: 10px 25px;
+    font-size: 1.5rem;
+    font-family: 'Impact', sans-serif;
+    background-color: var(--color-primario);
+    color: var(--color-boton-texto);
+    border: none;
+    border-radius: 50px; /* Estilo más moderno tipo píldora */
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: var(--transicion);
+}
+
+button:hover {
+    background-color: var(--color-secundario);
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Selector de Baraja */
+#lista {
+    background-color: var(--color-primario);
+    color: var(--color-boton-texto);
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-weight: bold;
+}
+
+#cambiar {
+    /* Ajustado para que no estorbe */
+    font-size: 1rem;
+    height: auto;
+    padding: 5px 15px;
+}
+
+/* =========================================
+   MENSAJES (MODALES)
+   ========================================= */
+#mensaje-victoria, #mensaje-derrota {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85); /* Fondo oscuro tras el mensaje */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+#mensaje-victoria video, #mensaje-derrota img {
+    max-width: 70%;
+    max-height: 70%;
+    border: 5px solid var(--color-primario);
+    border-radius: 20px;
+    box-shadow: 0 0 30px var(--color-primario);
+}
+
+/* =========================================
+   ESTADOS
+   ========================================= */
+.oculto {
+    display: none !important;
+}
+
+.mostrar {
+    display: flex !important;
+}

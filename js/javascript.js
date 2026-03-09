@@ -189,19 +189,23 @@
           //console.log(arrayCartas1.length);
           //mostramos esa carta
           document.getElementById("banca").appendChild(nuevaImagen);
+          setTimeout(a,1000);
       }
       //si la banca tiene menos o exactamente 7.5
       if(valorB<=7.5){
         //si el valor de la banca es mayor que el del usuario mostrara el cartel de derorta, si no mostrara el de victoria
         if(valor<=valorB){
-          setTimeout(derrota,1000);
+          setTimeout(derrota,3000);
         }else{
-          setTimeout(victoria,1000);
+          setTimeout(victoria,3000);
         }
       }else{
         //si la banca se pasa se mostrara el cartel de victoria
-        setTimeout(victoria,1000);
+        setTimeout(victoria,3000);
       }
+    }
+    function a(){
+
     }
     /**
      * funcion que muestra el cartel de victoria
@@ -226,6 +230,18 @@
       ocultar();
     }
     /**
+     * Funcion que recarga la pagina
+     */
+    function newGame(){
+      location.reload();
+    }
+    
+    function mostrarNewGame(){
+      var elm8=document.getElementById("newGame");
+      elm8.setAttribute("class", "mostrar");
+    }
+
+    /**
      * funcion que oculta el contenido
      */
     function ocultar(){
@@ -240,4 +256,11 @@
       elm4.setAttribute("class", "oculto");
       var elm5=document.getElementById("cartasbanca");
       elm5.setAttribute("class", "oculto");
+      var elm6=document.getElementById("lista");
+      elm6.setAttribute("class", "oculto");
+      var elm7=document.getElementById("cambiar");
+      elm7.setAttribute("class", "oculto");
+
+      setTimeout(mostrarNewGame,700);
     }
+
